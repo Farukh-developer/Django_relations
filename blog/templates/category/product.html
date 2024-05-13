@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<h1 style="text-align: center; color: blue">
+  Welcome to Products page
+</h1>
+  <div class="container">
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">price</th>
+            <th scope="col">category</th>
+           
+            
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for prod in products %}
+          <tr>
+            <th scope="row" style="border: 1px solid blue;">{{ prod.id }}</th>
+            <td>{{prod.name}}</td>
+            <td>{{prod.price}}</td>
+            <td>{{prod.category}}</td>
+
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+  </div>
+
+{% endblock content %}

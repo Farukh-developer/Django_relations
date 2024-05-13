@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<h1 style="text-align: center; color: blue">
+  Welcome to Students page
+</h1>
+<a href="{% url 'create_student' %}" class="btn btn-outline-success"><i class="fa-regular fa-square-plus"></i> Create</a>
+  <div class="container">
+  <table class="table table-striped">
+    <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Teacher</th>
+            <th scope="col">Group</th>
+            <th scope="col">Buttons</th>
+          </tr>
+     </thead>
+            <tbody>
+            {% for student in students %}
+          <tr>
+            <th scope="row" style="border: 1px solid blue;">{{ student.id }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.teacher }}</td>
+            <td>{{ student.group }}</td>
+            <td>
+                <a class="btn btn-outline-success" href="{% url 'read_student' student.id %}">Read <i class="fa-solid fa-book"></i></a>
+              </td>
+              <td>
+                <a class="btn btn-outline-info" href="{% url 'update_student' student.id %}">Update <i class="fa-solid fa-file-pen"></i></a>
+              </td>
+              <td>
+                <a class="btn btn-outline-danger" href="{% url 'delete_student' student.id %}">Remove <i class="fa-regular fa-trash-can"></i></a>
+              </td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+  </div>
+
+{% endblock content %}

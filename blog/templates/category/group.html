@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<h1 style="text-align: center; color: blue">
+  Welcome to Group page
+</h1>
+  <div class="container">
+  <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+          </tr>
+        </thead>
+    <tbody>
+            {% for group in group %}
+          <tr>
+            <th scope="row" style="border: 1px solid blue;">{{ group.id }}</th>
+            <td><a href="{% url 'teacher' group.id %}">{{ group.name }}</a></td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+  </div>
+
+{% endblock content %}
