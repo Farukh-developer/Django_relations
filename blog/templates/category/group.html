@@ -2,11 +2,11 @@
 
 {% block content %}
 {% load static %}
-<h1 style="text-align: center; color: blue">
+<h1 style="text-align: center; color:gray">
   Welcome to Group page
 </h1>
   <div class="container">
-  <table class="table table-striped">
+  <table class="table table-warning">
         <thead>
           <tr>
             <th scope="col">id</th>
@@ -16,12 +16,16 @@
     <tbody>
             {% for group in group %}
           <tr>
-            <th scope="row" style="border: 1px solid blue;">{{ group.id }}</th>
-            <td><a href="{% url 'teacher' group.id %}">{{ group.name }}</a></td>
-          </tr>
+            <th scope="row" style="border: 1px solid black;">{{ group.id }}</th>
+            <td><button type="button" class="btn btn-light"><a href="{% url 'teacher' group.id %}">{{ group.name }}</a>
+            </tr></button></td>
+            
           {% endfor %}
           </tbody>
         </table>
   </div>
+  <footer style="background-color: cadetblue; margin-top: 475px; padding: 10px; text-align:center ">
+    Copy.[2024] company name [Najot Talim]. All are reserved.
+  </footer>
 
 {% endblock content %}

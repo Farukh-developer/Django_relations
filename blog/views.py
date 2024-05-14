@@ -43,8 +43,8 @@ def create_student(request):
             form.save()
             return redirect('/group')
     return render(request, 'category/create_student.html', context={"form":form})
-    
-    
+
+
 def update_student(request, id):
     students=Student.objects.get(id=id)
     form=StudentForm(instance=students)
@@ -53,7 +53,7 @@ def update_student(request, id):
         if form.is_valid():
             form.save()
           
-            return redirect('/group')
+            return redirect('/group',students.id)
     
     return render(request, 'category/create_student.html', context={"form":form})
 

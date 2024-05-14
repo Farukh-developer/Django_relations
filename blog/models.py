@@ -41,7 +41,7 @@ class Student(models.Model):
     name=models.CharField(max_length=150)
     age=models.IntegerField()
     teacher=models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name="teacher")
-    group=models.ForeignKey(Group, on_delete=models.CASCADE)
+    group=models.ForeignKey(Group, on_delete=models.CASCADE, null=True, blank=True)
     
     
     def __str__(self):
