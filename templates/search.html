@@ -1,0 +1,24 @@
+<!-- templates/search.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <h1>Search Products</h1>
+    <form method="get" action="{% url 'search_product' %}">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Results</h2>
+    <ul>
+        {% for product in results %}
+            <li>{{ product.name }} - {{ product.description }} -${{ product.price }} - {{ product.category }}</li>
+        {% empty %}
+            <li>No results found</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

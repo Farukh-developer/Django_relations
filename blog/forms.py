@@ -27,6 +27,7 @@ class Productfrom(forms.ModelForm):
     
     class Meta:
         model=Product
-        fields=('name', 'price', 'category', 'image')                   
+        fields=('name', 'description', 'price', 'category', 'image')                   
                                 
-        
+class SearchForm(forms.Form):
+    query=forms.CharField(label='Search', max_length=200)        

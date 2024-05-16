@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Teacher, Student, Group
-from .forms import StudentForm, Productfrom
+from .forms import StudentForm, Productfrom, SearchForm
 # Create your views here.
 from .models import Category, Product
 
@@ -34,6 +34,18 @@ def update_home(request, id):
             form.save()
             return redirect('/home')
     return render(request, 'create_home.html', context={"form":form})
+
+def search_product(request):
+    form = SearchForm()
+    results = []
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+      
+            results = Product.objects.filter(name__icontains=query) | Product.objects.filter(description__icontains=query)
+
+    return render(request, 'search.html', context={"form":form, "results":results}) 
 
 
 def delete_home(request, id):
