@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Read  </title>
+{% endblock title %}
+
+{% block content %}
+<h1>Read Food</h1>
+<p>
+    <ul>
+        <li>{{product.id}}</li>
+        <li>{{product.name}}</li>
+        <li>{{product.price}}</li>
+        <li>{{product.category}}</li>
+    </ul>
+    
+</p>
+{% endblock content %}

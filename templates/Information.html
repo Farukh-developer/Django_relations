@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{product.image.url}}" alt="..." /></div>
+            <div class="col-md-6">
+             
+                <h1 class="display-5 fw-bolder">{{product.name}}</h1>
+                <div class="fs-5 mb-5">
+                    <span class="text-decoration-line-through">$45.00</span>
+                    <span>${{product.price}}</span>
+                </div>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                <div class="d-flex">
+                    <div>
+                    <a href="{% url 'read_home' product.id %}">Read</a> <br> <br>
+                    <a href="{% url 'update_home' product.id %}">Update</a> <br> <br>
+                    <a href="{% url 'delete_home' product.id %}">Remove</a> 
+
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

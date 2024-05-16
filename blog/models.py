@@ -13,13 +13,21 @@ class Product(models.Model):
     name=models.CharField(max_length=200)
     price=models.IntegerField()
     category=models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products")
-    product_date=models.DateTimeField(auto_now_add=True)
+    image=models.ImageField(upload_to='product_images', null=True)
+   
      
 
     def __str__(self):
         return f"{self.name}"
     
 #################################### Teacher , Student, Group.
+
+
+
+
+
+
+
 
 
 class Group(models.Model):
